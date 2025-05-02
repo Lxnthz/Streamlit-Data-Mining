@@ -11,8 +11,8 @@ def predict_risk(input_data):
     prediction = model.predict(input_data)[0]
     print("Raw Prediction:", prediction)  # Debug: Print raw prediction
     risk_mapping = {
-        0: "Low Risk",
-        1: "Medium Risk",
-        2: "High Risk"
+        1: "Low Risk",
+        2: "Medium Risk",
+        0: "High Risk"
     }
     return risk_mapping.get(prediction, "Unknown Risk")

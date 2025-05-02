@@ -10,17 +10,17 @@ def collect_user_input():
     blood_pressure_diastolic = st.number_input("Blood Pressure Diastolic (60-107)", min_value=60, max_value=107, value=80)
     stress_biosensor = st.slider("Stress Level (Biosensor, 1-9)", min_value=1, max_value=9, value=5)
     stress_report = st.slider("Stress Level (Self-Report, 1-9)", min_value=1, max_value=9, value=5)
-    physical_activity = st.selectbox("Physical Activity (Low/Medium/High)", ["Low", "Medium", "High"], index=1)
-    sleep_quality = st.selectbox("Sleep Quality (Low=0/Medium=1/High=2)", ["Low", "Medium", "High"], index=1)
-    mood = st.selectbox("Mood (Low/Medium/High)", ["Low", "Medium", "High"], index=1)
+    physical_activity = st.selectbox("Physical Activity", ["Low", "Medium", "High"], index=1)
+    sleep_quality = st.selectbox("Sleep Quality", ["Low", "Medium", "High"], index=1)
+    mood = st.selectbox("Mood", ["Low", "Medium", "High"], index=1)
     study_hours = st.number_input("Study Hours (5-60)", min_value=5, max_value=60, value=20)
     project_hours = st.number_input("Project Hours (0-32)", min_value=0, max_value=32, value=10)
 
     # Encode categorical features
     gender_encoded = 0 if gender == "Female" else 1
-    physical_activity_encoded = {"Low": 0, "Medium": 1, "High": 2}[physical_activity]
-    sleep_quality_encoded = {"Low": 0, "Medium": 1, "High": 2}[sleep_quality]
-    mood_encoded = {"Low": 0, "Medium": 1, "High": 2}[mood]
+    physical_activity_encoded = {"Low": 1, "Medium": 2, "High": 0}[physical_activity]
+    sleep_quality_encoded = {"Low": 1, "Medium": 2, "High": 0}[sleep_quality]
+    mood_encoded = {"Low": 1, "Medium": 2, "High": 0}[mood]
 
     # Create a DataFrame for the model in the correct order
     input_data = {
