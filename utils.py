@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 
 def collect_user_input():
-    # Input fields in the correct order
     age = st.number_input("Umur (18-24)", min_value=18, max_value=24, value=21)
     gender = st.selectbox("Jenis Kelamin (Female/Male)", ["Female", "Male"])
     heart_rate = st.number_input("Heart Rate (50-99)", min_value=50, max_value=99, value=75)
@@ -16,24 +15,22 @@ def collect_user_input():
     study_hours = st.number_input("Study Hours (5-60)", min_value=5, max_value=60, value=20)
     project_hours = st.number_input("Project Hours (0-32)", min_value=0, max_value=32, value=10)
 
-    # Encode categorical features
     gender_encoded = 0 if gender == "Female" else 1
     physical_activity_encoded = {"Low": 1, "Medium": 2, "High": 0}[physical_activity]
     sleep_quality_encoded = {"Low": 1, "Medium": 2, "High": 0}[sleep_quality]
     mood_encoded = {"Low": 1, "Medium": 2, "High": 0}[mood]
 
-    # Create a DataFrame for the model in the correct order
     input_data = {
         "Age": [age],
-        "Gender": [gender_encoded],  # Encoded
+        "Gender": [gender_encoded], 
         "Heart_Rate": [heart_rate],
         "Blood_Pressure_Systolic": [blood_pressure_systolic],
         "Blood_Pressure_Diastolic": [blood_pressure_diastolic],
         "Stress_Level_Biosensor": [stress_biosensor],
         "Stress_Level_Self_Report": [stress_report],
-        "Physical_Activity": [physical_activity_encoded],  # Encoded
-        "Sleep_Quality": [sleep_quality_encoded],  # Encoded
-        "Mood": [mood_encoded],  # Encoded
+        "Physical_Activity": [physical_activity_encoded], 
+        "Sleep_Quality": [sleep_quality_encoded], 
+        "Mood": [mood_encoded], 
         "Study_Hours": [study_hours],
         "Project_Hours": [project_hours],
     }

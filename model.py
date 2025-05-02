@@ -7,9 +7,7 @@ def load_model():
 
 def predict_risk(input_data):
     model = load_model()
-    print("Input Data:", input_data)  # Debug: Print input data
     prediction = model.predict(input_data)[0]
-    print("Raw Prediction:", prediction)  # Debug: Print raw prediction
     risk_mapping = {
         1: "Low Risk",
         2: "Medium Risk",
