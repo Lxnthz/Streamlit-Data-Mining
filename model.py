@@ -1,6 +1,11 @@
-import random
+import joblib
+import pandas as pd
 
-def predict_risk(df):
-    # Dummy logic (replace with model.predict)
-    risk_levels = ["Low", "Moderate", "High"]
-    return random.choices(risk_levels, weights=[0.3, 0.5, 0.2])[0]
+def load_model():
+  model = joblib.load("./model/model_rf.pkl")
+  return model 
+
+def predict_risk(input_data):
+  model = load_model()
+  prediction = model.predict(input_data)
+  return prediction[0]
