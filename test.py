@@ -8,16 +8,16 @@ model = joblib.load("./model/model_rf.pkl")
 test_input = pd.DataFrame({
     "Age": [21],
     "Gender": [1],  # Male
-    "Heart_Rate": [75],
-    "Blood_Pressure_Systolic": [120],
-    "Blood_Pressure_Diastolic": [80],
-    "Stress_Level_Biosensor": [5],
-    "Stress_Level_Self_Report": [5],
-    "Physical_Activity": [1],  # Medium
-    "Sleep_Quality": [1],  # Medium
-    "Mood": [1],  # Medium
-    "Study_Hours": [20],
-    "Project_Hours": [10]
+    "Heart_Rate": [99],
+    "Blood_Pressure_Systolic": [165],
+    "Blood_Pressure_Diastolic": [107],
+    "Stress_Level_Biosensor": [9],
+    "Stress_Level_Self_Report": [9],
+    "Physical_Activity": [2],  # Medium
+    "Sleep_Quality": [0],  # Medium
+    "Mood": [0],  # Medium
+    "Study_Hours": [60],
+    "Project_Hours": [32]
 })
 
 # Predict
